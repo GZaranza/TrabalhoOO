@@ -9,10 +9,10 @@ public class Carro {
 	private String placa;
 	private String descricao;
 	private int kilometragem;
+	private int id_carro;
 	
 	public Carro(String marca, String modelo, String ano, String cor, String placa, String descricao,
 			int kilometragem) {
-		super();
 		this.marca = marca;
 		this.modelo = modelo;
 		this.ano = ano;
@@ -22,6 +22,12 @@ public class Carro {
 		this.kilometragem = kilometragem;
 	}
 
+	public void cadastrarCarro() {
+		id_carro++;
+		setId_carro(id_carro);
+		
+	}
+	
 	public String getMarca() {
 		return marca;
 	}
@@ -78,6 +84,16 @@ public class Carro {
 		this.kilometragem = kilometragem;
 	}
 	
-	
+	public String toString() {
+		return "**********Carro "+id_carro+"**********\nModelo: "+ modelo+ "\nMarca: "+ marca+ "\nAno: "+ano+ "\nCor: "+cor+ "\nPlaca: "+placa+ "\nDescricao: "+descricao+"\n";
+	}
+
+	public int getId_carro() {
+		return id_carro;
+	}
+
+	public void setId_carro(int id_carro) {
+		this.id_carro = id_carro;
+	}
 	
 }

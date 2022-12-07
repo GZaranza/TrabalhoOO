@@ -6,16 +6,32 @@ public class Endereco {
 	private String complemento;
 	private String bairro;
 	private String cidade;
-	private int CEP;
+	private String estado;
+	private int cep;
 	
-	public Endereco(String logradouro, String complemento, String bairro, String cidade, int cEP) {
+	public Endereco(String logradouro, String complemento, String bairro, String cidade,String estado, int cep) {
 		super();
 		this.logradouro = logradouro;
 		this.complemento = complemento;
 		this.bairro = bairro;
 		this.cidade = cidade;
-		CEP = cEP;
+		this.estado = estado;
+		this.cep = cep;
 	}
+
+	
+	
+	public String getEstado() {
+		return estado;
+	}
+
+
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+
 
 	public String getLogradouro() {
 		return logradouro;
@@ -50,13 +66,15 @@ public class Endereco {
 	}
 
 	public int getCEP() {
-		return CEP;
+		return cep;
 	}
 
-	public void setCEP(int cEP) {
-		CEP = cEP;
+	public void setCEP(int cep) {
+		this.cep = cep;
 	}
 	
-	
+	public String toString() {
+		return logradouro+" "+complemento+" "+bairro+" "+cidade+" "+estado+" CEP: "+cep+"\n";
+	}
 	
 }

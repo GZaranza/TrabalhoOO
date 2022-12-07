@@ -1,31 +1,39 @@
 package pacote;
 
+
+
 public class Anuncio {
 	
-	private Carro produto;
+	private Carro carro;
 	private int valor;
 	private Endereco local_venda;
 	private String dt_anuncio; //"dd/MM/yyyy"
-	private Usuario anunciante;
+	private Loja loja;
 	private int id_anuncio;
 	
-	public Anuncio(Carro produto, int valor, Endereco local_venda, String dt_anuncio, Usuario anunciante,
+	public Anuncio(Carro carro, int valor, Endereco local_venda, String dt_anuncio, Loja loja,
 			int id_anuncio) {
-		super();
-		this.produto = produto;
+		
+		this.carro = carro;
 		this.valor = valor;
 		this.local_venda = local_venda;
 		this.dt_anuncio = dt_anuncio;
-		this.anunciante = anunciante;
+		this.loja = loja;
 		this.id_anuncio = id_anuncio;
 	}
+	
+	
 
-	public Carro getProduto() {
-		return produto;
+	public String toString() {
+		return "*********Anuncio 1************\n"+"Numero do anuncio: "+id_anuncio+"\nCarro: "+carro+"\nValor: "+valor+"\nLoja: "+loja.getNome()+"\nEndereco: "+local_venda.toString()+"\nData da venda: "+dt_anuncio;
+	}
+	
+	public Carro getCarro() {
+		return carro;
 	}
 
-	public void setProduto(Carro produto) {
-		this.produto = produto;
+	public void setCarro(Carro carro) {
+		this.carro = carro;
 	}
 
 	public int getValor() {
@@ -52,12 +60,12 @@ public class Anuncio {
 		this.dt_anuncio = dt_anuncio;
 	}
 
-	public Usuario getAnunciante() {
-		return anunciante;
+	public Loja getLoja() {
+		return loja;
 	}
 
-	public void setAnunciante(Usuario anunciante) {
-		this.anunciante = anunciante;
+	public void setLoja(Loja loja) {
+		this.loja = loja;
 	}
 
 	public int getId_anuncio() {
