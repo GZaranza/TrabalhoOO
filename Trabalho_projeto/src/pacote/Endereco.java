@@ -74,7 +74,7 @@ public class Endereco {
 	}
 	
 	public String toString() {
-		return logradouro+" "+complemento+" "+bairro+" "+cidade+" "+estado+" CEP: "+cep+"\n";
+		return "------------Endereco------------\n"+logradouro+" "+complemento+" "+bairro+" "+cidade+" "+estado+" CEP: "+cep+"\n";
 	}
 	
 }

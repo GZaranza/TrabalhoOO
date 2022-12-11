@@ -2,12 +2,13 @@ package pacote;
 
 public class Usuario extends Conta{
 
-	private int CPF;
+	private String CPF;
 	private String dt_nasc; //"dd/MM/yyyy";
-	
-	
-	public Usuario(String nome, String email, int cPF, String dt_nasc, int telefone, Endereco endereco) {
-		super();
+
+	public Usuario(String nome, String email, String cPF, String dt_nasc, String telefone, Endereco endereco) {
+		this.nome=nome;
+		this.email = email;
+		this.telefone = telefone;
 		CPF = cPF;
 		this.dt_nasc = dt_nasc;
 		this.endereco = endereco;
@@ -29,11 +30,11 @@ public class Usuario extends Conta{
 		this.email = email;
 	}
 
-	public int getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
 
-	public void setCPF(int cPF) {
+	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
 
@@ -62,4 +63,8 @@ public class Usuario extends Conta{
 	}
 	
 	
+	public String toString() {
+		return "----------Usuario---------\n"+"Nome: "+this.getNome()+"\nData de nascimento: "+this.getDt_nasc()+"\nCPF: "+this.getCPF()+"\nEndereco: "+this.getEndereco().getLogradouro()+" "+this.getEndereco().getComplemento()+"\n";
+	}
+
 }
