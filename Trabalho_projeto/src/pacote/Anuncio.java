@@ -6,26 +6,22 @@ public class Anuncio {
 	
 	private Carro carro;
 	private int valor;
-	private Endereco local_venda;
 	private String dt_anuncio; //"dd/MM/yyyy"
 	private Loja loja;
 	private int id_anuncio;
 	
-	public Anuncio(Carro carro, int valor, Endereco local_venda, String dt_anuncio, Loja loja,
-			int id_anuncio) {
+	public Anuncio(Carro carro,Loja loja, int valor, Endereco local_venda, String dt_anuncio) {
 		
 		this.carro = carro;
+		this.loja=loja;
 		this.valor = valor;
-		this.local_venda = local_venda;
 		this.dt_anuncio = dt_anuncio;
-		this.loja = loja;
-		this.id_anuncio = id_anuncio;
 	}
 	
 	
 
 	public String toString() {
-		return "*********Anuncio 1************\n"+"Numero do anuncio: "+id_anuncio+"\nCarro: "+carro+"\nValor: "+valor+"\nLoja: "+loja.getNome()+"\nEndereco: "+local_venda.toString()+"\nData da venda: "+dt_anuncio;
+		return "----------Anuncio----------\n"+"Numero do anuncio: "+id_anuncio+"\nCarro: "+carro.getModelo()+"\nValor: R$"+valor+"\nLoja: "+loja.getNome()+"\nEndereco: "+loja.getEndereco().getLogradouro()+" "+loja.getEndereco().getComplemento()+"\nData de anuncio: "+dt_anuncio+"\n";
 	}
 	
 	public Carro getCarro() {
@@ -42,14 +38,6 @@ public class Anuncio {
 
 	public void setValor(int valor) {
 		this.valor = valor;
-	}
-
-	public Endereco getLocal_venda() {
-		return local_venda;
-	}
-
-	public void setLocal_venda(Endereco local_venda) {
-		this.local_venda = local_venda;
 	}
 
 	public String getDt_anuncio() {
@@ -74,6 +62,16 @@ public class Anuncio {
 
 	public void setId_anuncio(int id_anuncio) {
 		this.id_anuncio = id_anuncio;
+	}
+	
+	public void anunciar() {
+		int qtd;
+		Loja loja = this.getLoja();
+		Carro carro = this.getCarro();
+		qtd = loja.getNumAnuncios();
+		this.setId_anuncio(qtd+1);
+		loja.setAnuncios(this, qtd);
+		loja.setNumAnuncios(qtd+1);
 	}
 	
 	

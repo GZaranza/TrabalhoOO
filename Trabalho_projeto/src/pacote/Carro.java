@@ -1,5 +1,7 @@
 package pacote;
 
+
+
 public class Carro {
 	
 	private String marca;
@@ -10,6 +12,7 @@ public class Carro {
 	private String descricao;
 	private int kilometragem;
 	private int id_carro;
+	private Loja loja;
 	
 	public Carro(String marca, String modelo, String ano, String cor, String placa, String descricao,
 			int kilometragem) {
@@ -20,11 +23,6 @@ public class Carro {
 		this.placa = placa;
 		this.descricao = descricao;
 		this.kilometragem = kilometragem;
-	}
-
-	public void cadastrarCarro() {
-		id_carro++;
-		setId_carro(id_carro);
 		
 	}
 	
@@ -85,7 +83,7 @@ public class Carro {
 	}
 	
 	public String toString() {
-		return "**********Carro "+id_carro+"**********\nModelo: "+ modelo+ "\nMarca: "+ marca+ "\nAno: "+ano+ "\nCor: "+cor+ "\nPlaca: "+placa+ "\nDescricao: "+descricao+"\n";
+		return "-----------Carro------------\nModelo: "+ modelo+ "\nMarca: "+ marca+ "\nAno: "+ano+ "\nCor: "+cor+ "\nPlaca: "+placa+ "\nDescricao: "+descricao+"\n";
 	}
 
 	public int getId_carro() {
@@ -95,5 +93,26 @@ public class Carro {
 	public void setId_carro(int id_carro) {
 		this.id_carro = id_carro;
 	}
+
+	public Loja getLoja() {
+		return loja;
+	}
+
+	public void setLoja(Loja loja) {
+		this.loja = loja;
+	}
 	
+	public void cadastrarCarro(Loja loj) {
+		int qtd;
+		this.setLoja(loj);
+		qtd = loj.getNumCarros();
+		this.setId_carro(qtd+1);
+		loj.setCarros(this, qtd);
+		loj.setNumCarros(qtd+1);
+	}
+
+	public String consultarCarro() {
+		String saida = "ID CARR: "+id_carro+"\nLoja: "+this.getLoja().getNome();
+		return saida;
+	}
 }

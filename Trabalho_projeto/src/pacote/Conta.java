@@ -1,6 +1,7 @@
 package pacote;
 
 
+
 public abstract class Conta {
 	
 	protected String nome;
